@@ -14,8 +14,8 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 import random
 
-SPOTIFY_CLIENT_ID = "cb27dbbb6e9e4ef399c5e3fe4823e1a3"
-SPOTIFY_CLIENT_SECRET = "ea205f8faf3c420291635d8109c2b458"
+SPOTIFY_CLIENT_ID = "Spotify-ID"
+SPOTIFY_CLIENT_SECRET = "Spotify-Secret"
 SPOTIFY_REDIRECT_URI = "http://127.0.0.1:5000/callback" 
 SPOTIFY_SCOPE = "user-read-playback-state user-modify-playback-state streaming user-read-email user-read-private"
 
@@ -433,4 +433,5 @@ def staticfile(path):
 
 
 if __name__ == "__main__":
+
     app.run(debug=True)
