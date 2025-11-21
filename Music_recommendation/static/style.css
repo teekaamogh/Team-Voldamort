@@ -1,0 +1,190 @@
+:root{
+    /* Dark Theme (Default) */
+    --bg: #0e1116; /* Deep Dark Blue/Gray */
+    --card: #181c24; /* Slightly lighter card background */
+    --surface: #262c38; /* For controls and status bars */
+    --accent: #a5d8ff; /* Soft Blue/LoFi Highlight */
+    --secondary-accent: #c4b5fd; /* Soft Purple/Secondary Highlight */
+    --muted: #8892a0;
+    --danger: #ff6b6b;
+    --success: #69db7c;
+    --shadow: 0 8px 20px rgba(0,0,0,0.4);
+    --border: 1px solid rgba(255,255,255,0.06);
+    --text-color: #f8f9fa;
+    --font-family: 'Inter', sans-serif;
+    --transition-fast: 0.15s ease-out;
+    --transition-slow: 0.3s ease;
+}
+
+/* Light theme variables (overrides) */
+:root.light {
+    --bg: #f4f6f9;
+    --card: #ffffff;
+    --surface: #e9ecef;
+    --accent: #4c6ef5; /* Pop of blue */
+    --secondary-accent: #845ef7;
+    --muted: #6b778d;
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
+    --border: 1px solid #dee2e6;
+    --text-color: #1a1e24;
+}
+
+/* base */
+*{box-sizing:border-box}
+html,body{height:100%; margin:0; font-family:var(--font-family); background:var(--bg); color: var(--text-color); -webkit-font-smoothing:antialiased; transition: background 0.3s, color 0.3s}
+.app-shell{display:flex; flex-direction:column; min-height:100vh}
+
+/* Typography */
+.small{font-size:13px}
+.muted{color:var(--muted)}
+
+/* Navbar */
+.navbar{display:flex; justify-content:space-between; align-items:center; padding:18px 28px; background:var(--card); border-bottom:var(--border)}
+.brand-row{display:flex; flex-direction:column}
+.brand{font-weight:800; font-size:22px; color:var(--accent)}
+.tag{font-size:12px; color:var(--muted); margin-top:4px}
+.nav-actions{display:flex; gap:12px; align-items:center}
+.icon-btn{background:transparent; border:none; font-size:18px; cursor:pointer; padding:8px 10px; border-radius:10px; color:var(--muted)}
+.icon-btn:hover{color:var(--text-color)}
+.ghost.small{background:var(--surface); border:none; padding:8px 10px; border-radius:10px; color:var(--muted); cursor:pointer}
+.ghost.small:hover{background:var(--accent); color:var(--bg)}
+
+/* Layout */
+.container{display:flex; gap:32px; max-width:1300px; margin:20px auto; padding:0 22px; flex-wrap:wrap}
+.main-content{flex:2; display:flex; flex-direction:column; gap:24px}
+.sidebar{flex:1; display:flex; flex-direction:column; gap:24px; min-width:300px}
+
+/* Card Styling */
+.card{background:var(--card); border-radius:16px; padding:20px; box-shadow:var(--shadow); border:var(--border); transition: all 0.3s ease}
+.loft{box-shadow: 0 16px 40px rgba(0,0,0,0.5)} /* Deeper shadow for main elements */
+
+/* Video and Detection Area */
+.detection-area{display:flex; gap:20px}
+.video-wrap{flex:2; display:flex; align-items:center; justify-content:center; min-height:360px; border-radius:12px; overflow:hidden; background:var(--surface)}
+video{width:100%; height:100%; object-fit:cover; border-radius:10px; display:block}
+.train-stack{flex:1; display:flex; flex-direction:column; gap:12px}
+.video-mini{height:160px; overflow:hidden; display:flex; align-items:center; justify-content:center; border-radius:12px}
+
+/* Main Controls */
+.controls-panel{background:var(--card); border-radius:16px; padding:20px; border:var(--border)}
+.control-row{display:flex; gap:12px; align-items:center; margin-bottom:15px}
+.control-btn{background:linear-gradient(90deg,var(--accent), var(--secondary-accent)); color:var(--bg); padding:12px 20px; border-radius:12px; border:none; cursor:pointer; font-weight:700; transition: transform var(--transition-fast), opacity var(--transition-fast)}
+.control-btn:active{transform:scale(0.98)}
+.status{padding:10px 12px; background:var(--surface); border-radius:10px; color:var(--muted); font-weight:600; text-align:center; flex:1}
+
+/* Emotion & Language */
+.emotion-result{display:flex; justify-content:space-between; align-items:center; margin-top:10px}
+.emotion-text{font-size:18px; font-weight:800; color:var(--accent)}
+.confidence-text{font-size:14px; color:var(--muted)}
+.lang-row{display:flex; gap:10px; margin-top:15px}
+.lang-btn{padding:8px 14px; border-radius:8px; border:var(--border); background:var(--surface); color:var(--muted); cursor:pointer; font-weight:600; transition: all var(--transition-fast)}
+.lang-btn:hover{background:var(--accent); color:var(--bg)}
+.lang-btn.active{background:var(--secondary-accent); color:var(--bg)}
+
+/* Songs Area */
+.songs-area{margin-top:15px; display:flex; flex-direction:column; gap:10px}
+.song-btn{display:flex; flex-direction:column; padding:12px; border-radius:10px; border:none; text-align:left; background:var(--surface); color:var(--text-color); font-weight:600; cursor:pointer; transition: all var(--transition-fast)}
+.song-btn:hover{background:var(--secondary-accent); color:var(--bg)}
+.song-btn .artist{font-size:12px; color:var(--muted); margin-top:2px}
+
+/* Spotify Player Interface */
+#spotifyPlayerInterface{
+    margin-top: 15px;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--accent) 5%, var(--secondary-accent) 80%);
+    border-radius: 12px;
+    color: white;
+    box-shadow: var(--shadow);
+}
+.player-controls{
+    /* FIX: Center the single play/pause button */
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin-top: 10px;
+}
+.player-btn{
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 32px; /* Increased size for focus */
+    cursor: pointer;
+    padding: 5px;
+    transition: transform 0.1s ease;
+}
+.player-btn:hover{
+    transform: scale(1.1);
+}
+.player-info strong{
+    font-weight: 800;
+}
+.track-bar{
+    height: 6px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 3px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.track-progress{
+    height: 100%;
+    width: 0%;
+    background: white;
+    border-radius: 3px;
+    transition: width 0.3s linear;
+}
+
+/* Sidebar Elements */
+.avatar-card{display:flex; gap:15px; align-items:center; padding:20px; background:var(--card); border-radius:16px; border:var(--border)}
+.avatar-shell{width:100px; height:100px; border-radius:50%; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; transition: all .35s cubic-bezier(.2,.9,.3,1); background: var(--surface); border:3px solid var(--accent)}
+.face{width:65px; height:65px; border-radius:50%; background: var(--text-color); position:relative; display:flex; align-items:center; justify-content:center; box-shadow: 0 4px 12px rgba(0,0,0,0.3); transition: all .3s ease}
+.eye{width:8px; height:8px; background:var(--bg); border-radius:50%; position:absolute; top:35%; transition: all .3s ease}
+.eye.left{left:28%}
+.eye.right{right:28%}
+.mouth{width:30px; height:6px; border-radius:3px; background:var(--bg); position:absolute; bottom:25%; transition: all .3s ease}
+.tear{position:absolute; width:4px; height:8px; background: #5ec7ff; border-radius:4px; left:62%; top:50%; opacity:0; transform: translateY(-4px); transition: all .3s ease}
+
+/* Avatar Emotion States (Same as previous, using simplified CSS animations) */
+.avatar-shell.happy .face{transform: translateY(-5px) scale(1.05); background: #fff; border:3px solid var(--success)}
+.avatar-shell.happy .eye{width:10px; height:10px; background:var(--success)}
+.avatar-shell.happy .mouth{height:15px; border-radius:50%; background:transparent; border-top:3px solid var(--bg); border-radius:0 0 15px 15px;}
+
+.avatar-shell.sad .face{transform: translateY(3px) scale(0.95); background: #eee; border:3px solid var(--accent)}
+.avatar-shell.sad .eye{background: var(--accent); width:6px; height:6px; transform: scaleY(0.5)}
+.avatar-shell.sad .mouth{width:25px; height:5px; border-radius:3px; background: var(--muted); border-radius: 3px 3px 0 0}
+.avatar-shell.sad .tear{opacity:1; transform: translateY(10px); animation: drip 900ms infinite}
+
+@keyframes drip {
+    0% { transform: translateY(0px); opacity:1 }
+    80% { transform: translateY(18px); opacity:0 }
+    100% { transform: translateY(22px); opacity:0 }
+}
+
+.avatar-shell.angry .face{transform: rotate(-3deg) scale(1.03); background: #fff; border:3px solid var(--danger)}
+.avatar-shell.angry .eye{background:var(--danger); width:8px; height:8px; transform: translateY(-3px)}
+.avatar-shell.angry .mouth{background: var(--danger); width:35px; height:8px; border-radius:4px; transform: translateY(3px)}
+
+.avatar-shell.neutral .face{transform:none; background: #fff; border:3px solid var(--surface)}
+
+
+/* User Guide / Quick Actions */
+.user-guide-section { margin-top: 15px; }
+.guide-item { margin-bottom: 8px; }
+.guide-item strong { color: var(--accent); }
+.action-list{display:flex; flex-direction:column; gap:8px}
+.action-list button{background:var(--surface); border:none; padding:10px; border-radius:8px; color:var(--text-color); font-weight:600; cursor:pointer; transition: background var(--transition-fast)}
+.action-list button:hover{background:var(--secondary-accent); color:var(--bg)}
+.action-list button.danger{background:var(--danger); color:white}
+
+/* footer */
+.footer{padding:18px 28px; display:flex; justify-content:space-between; align-items:center; margin-top:auto; color:var(--muted)}
+
+/* responsive */
+@media (max-width:1000px){
+    .container{flex-direction:column; padding:12px}
+    .detection-area{flex-direction:column}
+    .sidebar, .main-content{width:100%; min-width:auto}
+    .video-wrap{min-height:280px}
+}
+
+/* Helper Class */
+.hidden { display: none !important; }
